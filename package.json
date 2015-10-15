@@ -1,0 +1,43 @@
+{
+  "name": "keystoneAuth",
+  "version": "0.0.1",
+  "description": "An simple lib for openstack keystone authentication.",
+  "author": "Li Xipeng <lixipeng@hihuron.com>",
+  "contributors": [],
+  "license": "MIT",
+  "repository": "hahaps/openstackAuth",
+  "homepage": "https://github.com/hahaps/openstackAuth",
+  "main": "index.js",
+  "keywords": [
+    "openstack",
+    "keystone",
+    "auth"
+  ],
+  "dependencies": {
+    "request": "~2.60.0",
+    "debug": "~2.2.0"
+  },
+  "devDependencies": {
+    "istanbul": "0.3.17",
+    "mocha": "2.2.5",
+    "should": "7.0.2",
+    "sinon": "~1.15.0",
+    "jshint": "~2.8.0"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "index.js",
+    "lib/"
+  ],
+  "scripts": {
+    "test": "npm run-script jshint && mocha --require test/support/env --reporter spec --bail --check-leaks test/ test/acceptance/",
+    "test-ci": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --require test/support/env --reporter spec --check-leaks test/ test/acceptance/",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --require test/support/env --reporter dot --check-leaks test/ test/acceptance/",
+    "test-tap": "mocha --require test/support/env --reporter tap --check-leaks test/ test/acceptance/",
+    "jshint": "jshint 'index.js' 'lib/' 'test/'"
+  }
+}
